@@ -24,7 +24,7 @@ struct ContentView: View {
                     Button {
                         Task {
                             await requestMeaning(word: word) { str in
-                                result = str
+                                result = parseMeaning(str)
                             }
                         }
                     } label: {
