@@ -9,44 +9,49 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var word: String = ""
-    @State private var result: String = "result here"
+    @State private var result: [WordData]? = []
+    @State private var isLoading: Bool = false
+    
     var body: some View {
-        NavigationView {
-            VStack{
-                HStack {
-                    TextField("search korean word", text: $word)
-                        .textFieldStyle(.roundedBorder)
-                        .padding(5)
-                        .disableAutocorrection(.none)
-                        .textContentType(.none)
-                        .textInputAutocapitalization(.none)
-                    
-                    Button {
-                        Task {
-                            await requestMeaning(word: word) { str in
-                                result = parseMeaning(str)
+        ZStack {
+            NavigationView {
+                VStack{
+                    HStack {
+                        TextField("search korean word", text: $word)
+                            .textFieldStyle(.roundedBorder)
+                            .padding(5)
+                            .disableAutocorrection(.none)
+                            .textContentType(.none)
+                            .textInputAutocapitalization(.none)
+                        
+                        Button {
+                            isLoading = true
+                            Task {
+                                await requestMeaning(word: word) { str in
+                                    result = parseMeaning(str)
+                                    isLoading = false
+                                }
                             }
+                        } label: {
+                            Text("search")
                         }
-                    } label: {
-                        Text("search")
+                        .buttonStyle(.borderedProminent)
+                        .buttonBorderShape(.roundedRectangle(radius: 10))
+                        .foregroundColor(.black)
+                        .padding(5)
                     }
-                    .buttonStyle(.borderedProminent)
-                    .buttonBorderShape(.roundedRectangle(radius: 10))
-                    .foregroundColor(.black)
-                    .padding(5)
+                    
+                    ResultList(wordDatas: result ?? [])
+                    
+                    Text("powered by krdict.korean.go.kr")
+                        .font(.footnote)
                 }
-                
-                TextEditor(text: $result)
-                    .textFieldStyle(.roundedBorder)
-                    .foregroundColor(.black)
-                    .border(.black, width: 2)
-                    .padding(5)
-                
-                Text("powered by krdict.korean.go.kr")
-                    .font(.footnote)
+                .padding()
+                .navigationTitle("KR-EN dictionary")
             }
-            .padding()
-            .navigationTitle("KR-EN dictionary")
+            if isLoading {
+                LoadingView()
+            }
         }
     }
     

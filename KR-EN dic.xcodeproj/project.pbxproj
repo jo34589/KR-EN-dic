@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1CB911EAFC912F9D57A1A683 /* Pods_KR_EN_dic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B314090BFBAA91408F176B1 /* Pods_KR_EN_dic.framework */; };
+		E3136B182783436F00FDC652 /* WordDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3136B172783436F00FDC652 /* WordDataModel.swift */; };
+		E3136B1A2784152C00FDC652 /* ResultRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3136B192784152C00FDC652 /* ResultRow.swift */; };
+		E3136B1C27841F5C00FDC652 /* ResultList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3136B1B27841F5C00FDC652 /* ResultList.swift */; };
+		E38673A127800D8000C44177 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38673A027800D8000C44177 /* LoadingView.swift */; };
 		E3AEB0A3277C1A86006E58FB /* KR_EN_dicApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AEB0A2277C1A86006E58FB /* KR_EN_dicApp.swift */; };
 		E3AEB0A5277C1A86006E58FB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AEB0A4277C1A86006E58FB /* ContentView.swift */; };
 		E3AEB0A7277C1A87006E58FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3AEB0A6277C1A87006E58FB /* Assets.xcassets */; };
@@ -20,6 +24,10 @@
 		0281041B8D8A6936E1081ACF /* Pods-KR-EN dic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KR-EN dic.release.xcconfig"; path = "Target Support Files/Pods-KR-EN dic/Pods-KR-EN dic.release.xcconfig"; sourceTree = "<group>"; };
 		0B314090BFBAA91408F176B1 /* Pods_KR_EN_dic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KR_EN_dic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D81AD581B0D98EE40020A74 /* Pods-KR-EN dic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KR-EN dic.debug.xcconfig"; path = "Target Support Files/Pods-KR-EN dic/Pods-KR-EN dic.debug.xcconfig"; sourceTree = "<group>"; };
+		E3136B172783436F00FDC652 /* WordDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDataModel.swift; sourceTree = "<group>"; };
+		E3136B192784152C00FDC652 /* ResultRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultRow.swift; sourceTree = "<group>"; };
+		E3136B1B27841F5C00FDC652 /* ResultList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultList.swift; sourceTree = "<group>"; };
+		E38673A027800D8000C44177 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		E3AEB09F277C1A86006E58FB /* KR-EN dic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KR-EN dic.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3AEB0A2277C1A86006E58FB /* KR_EN_dicApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KR_EN_dicApp.swift; sourceTree = "<group>"; };
 		E3AEB0A4277C1A86006E58FB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -73,7 +81,11 @@
 			children = (
 				E3AEB0A2277C1A86006E58FB /* KR_EN_dicApp.swift */,
 				E3AEB0A4277C1A86006E58FB /* ContentView.swift */,
+				E3136B172783436F00FDC652 /* WordDataModel.swift */,
+				E38673A027800D8000C44177 /* LoadingView.swift */,
 				E3AEB0B0277C33D0006E58FB /* KRDict.swift */,
+				E3136B192784152C00FDC652 /* ResultRow.swift */,
+				E3136B1B27841F5C00FDC652 /* ResultList.swift */,
 				E3C70D08277D73F100ED4D64 /* Parser.swift */,
 				E3AEB0A6277C1A87006E58FB /* Assets.xcassets */,
 				E3AEB0A8277C1A87006E58FB /* Preview Content */,
@@ -212,9 +224,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3C70D09277D73F100ED4D64 /* Parser.swift in Sources */,
+				E3136B182783436F00FDC652 /* WordDataModel.swift in Sources */,
 				E3AEB0B1277C33D0006E58FB /* KRDict.swift in Sources */,
 				E3AEB0A5277C1A86006E58FB /* ContentView.swift in Sources */,
+				E38673A127800D8000C44177 /* LoadingView.swift in Sources */,
 				E3AEB0A3277C1A86006E58FB /* KR_EN_dicApp.swift in Sources */,
+				E3136B1C27841F5C00FDC652 /* ResultList.swift in Sources */,
+				E3136B1A2784152C00FDC652 /* ResultRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
