@@ -28,7 +28,9 @@ struct ResultRow: View {
                                     .lineLimit(2)
                                 Text("meaning:\n \(trans.senseTrans)")
                                     //.lineLimit(4)
+                                
                             }
+                            .listRowBackground(Color(.init(gray: 0.9, alpha: 0.3)))
                         }
                     }
                 }

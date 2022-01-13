@@ -37,7 +37,7 @@ struct WordData: Identifiable {
     var trans: [Trans]
 }
 
-
+let initialWord = WordData(id: 0, word: "Result here", pos: "Part Of Speech", trans: [Trans(id: 0, wordTrans: "direct translation", senseTrans: "meaning of word translated into English")])
 let modelTrans1 = Trans(id: 0, wordTrans: "foo1", senseTrans: "dummy translated sentence")
 let modelTrans2 = Trans(id: 1, wordTrans: "foo2", senseTrans: "dummy translated sentence")
 let modelWord1 = WordData(id: 0, word: "boo1", pos: "noun", trans: [modelTrans1, modelTrans2])

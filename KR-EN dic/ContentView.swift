@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import SwiftyXMLParser
 
 struct ContentView: View {
     @State private var word: String = ""
-    @State private var result: [WordData]? = []
+    @State private var result: [WordData]? = [initialWord]
     @State private var isLoading: Bool = false
+    @State private var isPresented: Bool = false
     
     var body: some View {
         ZStack {
@@ -20,16 +22,20 @@ struct ContentView: View {
                         TextField("search korean word", text: $word)
                             .textFieldStyle(.roundedBorder)
                             .padding(5)
-                            .disableAutocorrection(.none)
+                            .disableAutocorrection(true)
                             .textContentType(.none)
                             .textInputAutocapitalization(.none)
-                        
                         Button {
                             isLoading = true
                             Task {
                                 await requestMeaning(word: word) { str in
                                     result = parseMeaning(str)
                                     isLoading = false
+                                    if result == nil {
+                                        isPresented = true
+                                    } else if result!.isEmpty {
+                                        isPresented = true
+                                    }
                                 }
                             }
                         } label: {
@@ -53,8 +59,16 @@ struct ContentView: View {
                 LoadingView()
             }
         }
+        .alert(isPresented: $isPresented) {
+            if result == nil {
+                return Alert(title: Text("Error"), message: Text("Bad internet connection"), dismissButton: .default(Text("OK")))
+            } else if result!.isEmpty {
+                return Alert(title: Text("No Result"), message: Text("No matching word exists in dictionary"), dismissButton: .default(Text("OK")))
+            } else {
+                return Alert(title: Text(""), message: nil, dismissButton: .cancel())
+            }
+        }
     }
-    
 }
 
 struct ContentView_Previews: PreviewProvider {
