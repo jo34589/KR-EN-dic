@@ -15,7 +15,7 @@ func parseMeaning(_ xmlString: String) -> [WordData]? {
         let xml = try XML.parse(xmlString)
         if let wordCount = xml.channel.item.all?.count {
             for i in 0 ..< wordCount {
-                var wordData = modelWord1
+                var wordData = initialWord
                 if let word = xml.channel.item[i].word.text {
                     //print(word)
                     wordData.id = i
@@ -62,7 +62,7 @@ func parseMeaning(_ xmlString: String) -> [WordData]? {
                     if let senseCount = xml.channel.item[i].sense.all?.count {
                         var translations: [Trans] = []
                         for j in 0 ..< senseCount {
-                            var trans: Trans = modelTrans1
+                            var trans: Trans = initialTrans
                             trans.id = j
                             if let transWordData = xml.channel.item[i].sense[j].translation.trans_word.element?.CDATA,
                                let transWordString = String(data: transWordData, encoding: .utf8) {

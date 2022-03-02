@@ -42,7 +42,7 @@ struct ResultRow: View {
 
 struct ResultRow_Previews: PreviewProvider {
     static var previews: some View {
-        ResultRow(wordData: modelWord1)
+        ResultRow(wordData: initialWord)
             .previewLayout(.fixed(width: 300, height: 500))
     }
 }

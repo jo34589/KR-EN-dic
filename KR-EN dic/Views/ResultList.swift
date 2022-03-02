@@ -25,7 +25,6 @@ struct ResultList: View {
 
 struct ResultList_Previews: PreviewProvider {
     static var previews: some View {
-        ResultList(wordDatas: modelWords)
-            
+        ResultList(wordDatas: [initialWord])
     }
 }

@@ -12,29 +12,39 @@ struct ContentView: View {
     @State private var word: String = ""
     @State private var result: [WordData]? = [initialWord]
     @State private var isLoading: Bool = false
-    @State private var isPresented: Bool = false
+    @State private var alertPresented: Bool = false
+    @State private var optionPresented: Bool = false
+    @EnvironmentObject var searchParam: SearchParam
+    
+    private enum Field: Int {
+        case searchBar
+    }
+    
+    @FocusState private var focusField: Field?
     
     var body: some View {
         ZStack {
             NavigationView {
                 VStack{
                     HStack {
-                        TextField("search korean word", text: $word)
+                        TextField("type korean word", text: $word)
                             .textFieldStyle(.roundedBorder)
                             .padding(5)
                             .disableAutocorrection(true)
                             .textContentType(.none)
                             .textInputAutocapitalization(.none)
+                            .focused($focusField, equals: .searchBar)
                         Button {
                             isLoading = true
+                            focusField = nil
                             Task {
-                                await requestMeaning(word: word) { str in
+                                await requestMeaning(word: word, param: searchParam) { str in
                                     result = parseMeaning(str)
                                     isLoading = false
                                     if result == nil {
-                                        isPresented = true
+                                        alertPresented = true
                                     } else if result!.isEmpty {
-                                        isPresented = true
+                                        alertPresented = true
                                     }
                                 }
                             }
@@ -54,12 +64,24 @@ struct ContentView: View {
                 }
                 .padding()
                 .navigationTitle("KR-EN dictionary")
+                .toolbar() {
+                    Button {
+                        optionPresented.toggle()
+                    } label: {
+                        Label("search options", systemImage: "gearshape")
+                    }
+                }
+                .sheet(isPresented: $optionPresented) {
+                    OptionView()
+                        .environmentObject(searchParam)
+                }
+                
             }
             if isLoading {
                 LoadingView()
             }
         }
-        .alert(isPresented: $isPresented) {
+        .alert(isPresented: $alertPresented) {
             if result == nil {
                 return Alert(title: Text("Error"), message: Text("Bad internet connection"), dismissButton: .default(Text("OK")))
             } else if result!.isEmpty {
@@ -74,5 +96,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(defaultParam)
     }
 }

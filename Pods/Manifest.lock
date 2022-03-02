@@ -1,0 +1,28 @@
+PODS:
+  - Alamofire (5.4.4)
+  - SwiftyXMLParser (5.5.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - SwiftyXMLParser (from `https://github.com/yahoojapan/SwiftyXMLParser.git`)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+
+EXTERNAL SOURCES:
+  SwiftyXMLParser:
+    :git: https://github.com/yahoojapan/SwiftyXMLParser.git
+
+CHECKOUT OPTIONS:
+  SwiftyXMLParser:
+    :commit: d7a1d23f04c86c1cd2e8f19247dd15d74e0ea8be
+    :git: https://github.com/yahoojapan/SwiftyXMLParser.git
+
+SPEC CHECKSUMS:
+  Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
+  SwiftyXMLParser: 027d9e6fb54a38d95dccec025bcea9693f699c47
+
+PODFILE CHECKSUM: 4d58871c6827cd59d8d39b09753668fc6025ba5f
+
+COCOAPODS: 1.11.2

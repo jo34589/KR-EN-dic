@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct KR_EN_dicApp: App {
+    
     var body: some Scene {
+        
+        let searchParam: SearchParam = defaultParam
+        
         WindowGroup {
             ContentView()
+                .environmentObject(searchParam)
         }
     }
 }

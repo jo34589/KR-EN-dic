@@ -8,13 +8,15 @@
 import Foundation
 import Alamofire
 
-func requestMeaning(word: String, completion: @escaping((String)->Void)) async -> Void {
+func requestMeaning(word: String, param: SearchParam, completion: @escaping((String)->Void)) async -> Void {
     let url = "https://krdict.korean.go.kr/api/search"
     
     let param:Parameters = [
         "key" : "7B5E3914BA3964FD21F83D765FBC6F75",
         "q" : word,
-        "part" : "word",
+        "num" : param.num,
+        "sort" : param.sort,
+        "part" : param.part,
         "translated" : "y",
         "trans_lang" : "1"
     ]

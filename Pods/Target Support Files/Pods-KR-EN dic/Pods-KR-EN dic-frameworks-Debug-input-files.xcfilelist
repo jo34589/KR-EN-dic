@@ -1,0 +1,3 @@
+${PODS_ROOT}/Target Support Files/Pods-KR-EN dic/Pods-KR-EN dic-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/SwiftyXMLParser/SwiftyXMLParser.framework
