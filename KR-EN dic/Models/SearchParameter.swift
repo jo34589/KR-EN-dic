@@ -9,15 +9,15 @@ import Foundation
 
 class SearchParam: ObservableObject {
     @Published var num: Int
-    @Published var sort: String
-    @Published var part: String
+    @Published var sort: Int
+    //@Published var part: Int
     
-    init(num: Int, sort: String, part: String) {
+    init(num: Int, sort: Int) {
         self.num = num
         self.sort = sort
-        self.part = part
+        //self.part = part
     }
 }
 
-let defaultParam = SearchParam(num: 10, sort: "dict", part: "word")
+let defaultParam = SearchParam(num: 0, sort: 0)
 

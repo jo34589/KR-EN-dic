@@ -11,7 +11,7 @@ struct OptionView: View {
     @EnvironmentObject var param: SearchParam
     private var numrange = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
     private var sortrange = ["dict", "popular"]
-    private var partrange = ["word", "idiom, proverb", "definition"]
+    //private var partrange = ["word", "idiom & proverb", "definition", "ueage"]
     
     var body: some View {
         NavigationView {
@@ -32,6 +32,7 @@ struct OptionView: View {
                     }
                     .pickerStyle(.segmented)
                 }
+                /*
                 Section("search for") {
                     Picker(selection: $param.part, content: {
                         ForEach(0 ..< partrange.count) {
@@ -41,6 +42,7 @@ struct OptionView: View {
                     })
                     .pickerStyle(.inline)
                 }
+                */
             }
             .navigationTitle("Search Options")
         }
